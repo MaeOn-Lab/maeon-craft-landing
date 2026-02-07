@@ -14,33 +14,35 @@ import Navigation from '../components/Navigation.astro'
       <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-forest/5 rounded-full blur-3xl"></div>
       <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber/5 rounded-full blur-3xl"></div>
 
-      <div class="relative mx-auto max-w-7xl px-6 py-20">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="relative mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="space-y-8">
             <div class="inline-flex items-center gap-3 px-4 py-2 glass rounded-full">
               <span class="w-2 h-2 bg-forest-light rounded-full gentle-pulse"></span>
               <span class="text-sm text-forest-light tracking-wider" style="font-family: 'Sarabun', sans-serif;">Slow Life Oracle</span>
             </div>
 
-            <h1 class="space-y-2">
-              <span class="block text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight" style="font-family: 'Playfair Display', serif;">
+            <h1 class="space-y-3">
+              <span class="block text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight" style="font-family: 'Inter', sans-serif;">
                 <span class="text-white">Maeon</span> <span class="gradient-text-nature">Craft</span>
               </span>
-              <span class="block text-2xl sm:text-3xl text-stone/80 font-light" style="font-family: 'Sarabun', sans-serif;">
-                ช่างฝีมือที่มีข้อมูล
+              <span class="block text-2xl sm:text-3xl text-stone/90 font-light" style="font-family: 'Inter', sans-serif;">
+                Craftsmanship with Data
               </span>
             </h1>
 
-            <p class="text-lg sm:text-xl text-stone/60 leading-relaxed max-w-xl" style="font-family: 'Sarabun', sans-serif;">
+            <p class="text-lg sm:text-xl text-stone-muted leading-relaxed max-w-xl" style="font-family: 'Sarabun', sans-serif;">
               <span class="text-amber glow-text-amber">ไหลเหมือนแม่น้ำ หยุดเหมือนภูเขา</span><br/>
-              <span class="text-stone-light/70">ฝีมือช่างด้วยข้อมูล</span>
+              <span class="text-stone">Craftsmanship with Data</span>
             </p>
 
             <div class="flex flex-wrap gap-4">
-              <a href="#philosophy" class="group relative px-8 py-4 bg-gradient-to-r from-forest to-forest-light rounded-lg font-bold text-white transition-all hover:scale-105 hover-glow" style="font-family: 'Inter', sans-serif;">
+              <a href="#philosophy" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-forest to-forest-light rounded-xl font-bold text-white transition-colors duration-200 hover:from-forest-light hover:to-forest cursor-pointer" style="font-family: 'Inter', sans-serif;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
                 Explore Philosophy
               </a>
-              <a href="https://github.com/Soul-Brews-Studio/maeon-craft-landing" class="px-8 py-4 glass rounded-lg font-bold text-forest-light transition-all hover:scale-105 hover-glow" style="font-family: 'Inter', sans-serif;">
+              <a href="https://github.com/MaeOn-Lab/maeon-craft-landing" class="inline-flex items-center gap-2 px-8 py-4 glass rounded-xl font-bold text-forest-light hover-glow cursor-pointer" style="font-family: 'Inter', sans-serif;">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
                 View Source
               </a>
             </div>
@@ -49,12 +51,21 @@ import Navigation from '../components/Navigation.astro'
           <div class="relative flex justify-center">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-r from-forest/20 to-amber/20 rounded-3xl blur-2xl"></div>
-              <div class="relative glass-amber rounded-3xl p-8">
-                <div class="text-center space-y-4">
-                  <div class="text-9xl float">🍺</div>
-                  <div class="text-sm text-stone/50" style="font-family: 'Sarabun', sans-serif;">
+              <div class="relative glass-amber rounded-3xl p-10 sm:p-12">
+                <div class="text-center space-y-6">
+                  <!-- Beer mug hero SVG -->
+                  <div class="float">
+                    <svg class="w-32 h-32 sm:w-40 sm:h-40 mx-auto text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 11h1a3 3 0 0 1 0 6h-1"/>
+                      <path d="M9 12v6"/>
+                      <path d="M13 12v6"/>
+                      <path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 3 11 3s2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/>
+                      <path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/>
+                    </svg>
+                  </div>
+                  <div class="text-sm text-stone-muted" style="font-family: 'Sarabun', sans-serif;">
                     <div>MaeOn Craft & Camp</div>
-                    <div class="text-amber">แม่ออน, เชียงใหม่</div>
+                    <div class="text-amber mt-1">แม่ออน, เชียงใหม่</div>
                   </div>
                 </div>
               </div>
@@ -67,77 +78,94 @@ import Navigation from '../components/Navigation.astro'
     <!-- Philosophy -->
     <section id="philosophy" class="relative py-24 border-y border-forest/10">
       <div class="absolute inset-0 bg-gradient-to-r from-forest/3 via-amber/3 to-forest/3"></div>
-      <div class="relative mx-auto max-w-6xl px-6">
-        <div class="text-center mb-16">
+      <div class="relative mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
           <h2 class="text-sm text-forest-light tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">PHILOSOPHY</h2>
-          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">ปรัชญาของช่างฝีมือ</p>
+          <p class="text-3xl sm:text-4xl font-bold text-white" style="font-family: 'Inter', sans-serif;">ปรัชญาของช่างฝีมือ</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
-            <div class="text-5xl mb-4">🌊</div>
-            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">ไหลเหมือนแม่น้ำ</h3>
-            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Flow like a river. Adapt to change. Let data guide the current. Never force — observe and respond.</p>
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div class="glass rounded-2xl p-8 hover-glow text-center reveal reveal-delay-1">
+            <!-- Water/river icon -->
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-water/20 to-water-light/10 flex items-center justify-center">
+              <svg class="w-8 h-8 text-water-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Inter', sans-serif;">ไหลเหมือนแม่น้ำ</h3>
+            <p class="text-stone leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Flow like a river. Adapt to change. Let data guide the current. Never force — observe and respond.</p>
           </div>
-          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
-            <div class="text-5xl mb-4">🏔️</div>
-            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">หยุดเหมือนภูเขา</h3>
-            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Stand like a mountain. Know when to pause. Patience is precision. Quality takes time.</p>
+          <div class="glass rounded-2xl p-8 hover-glow text-center reveal reveal-delay-2">
+            <!-- Mountain icon -->
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-stone/20 to-stone-light/10 flex items-center justify-center">
+              <svg class="w-8 h-8 text-stone-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Inter', sans-serif;">หยุดเหมือนภูเขา</h3>
+            <p class="text-stone leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Stand like a mountain. Know when to pause. Patience is precision. Quality takes time.</p>
           </div>
-          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
-            <div class="text-5xl mb-4">🔧</div>
-            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">ฝีมือช่างด้วยข้อมูล</h3>
-            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Craftsmanship with data. Traditional wisdom enhanced by modern intelligence. The artisan meets the algorithm.</p>
+          <div class="glass rounded-2xl p-8 hover-glow text-center reveal reveal-delay-3">
+            <!-- Wrench/craft icon -->
+            <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-amber/20 to-amber-light/10 flex items-center justify-center">
+              <svg class="w-8 h-8 text-amber-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Inter', sans-serif;">ฝีมือช่างด้วยข้อมูล</h3>
+            <p class="text-stone leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Craftsmanship with data. Traditional wisdom enhanced by modern intelligence. The artisan meets the algorithm.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Brewing Process -->
-    <section id="brewing" class="py-32 relative">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="text-center mb-20">
+    <section id="brewing" class="py-28 sm:py-32 relative">
+      <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-16 sm:mb-20 reveal">
           <h2 class="text-sm text-amber tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">BREWING PROCESS</h2>
-          <p class="text-4xl font-bold text-white" style="font-family: 'Playfair Display', serif;">การบ่ม — The Craft</p>
+          <p class="text-3xl sm:text-4xl font-bold text-white" style="font-family: 'Inter', sans-serif;">การบ่ม — The Craft</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-forest to-forest-light flex items-center justify-center text-2xl shrink-0">🌿</div>
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          <div class="glass-amber rounded-2xl p-6 sm:p-8 hover-glow group reveal reveal-delay-1">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-forest to-forest-light flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>
+              </div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Raw Materials</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Local ingredients from Mae On valley. Spring water from the mountain. Nature provides the foundation.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Raw Materials</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Local ingredients from Mae On valley. Spring water from the mountain. Nature provides the foundation.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber to-amber-light flex items-center justify-center text-2xl shrink-0">🌡️</div>
+          <div class="glass-amber rounded-2xl p-6 sm:p-8 hover-glow group reveal reveal-delay-2">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber to-amber-light flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+              </div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-amber transition-colors" style="font-family: 'Playfair Display', serif;">Data-Driven Brewing</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Temperature, timing, fermentation — monitored by sensors, refined by AI. Traditional craft meets precision technology.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-amber transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Data-Driven Brewing</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Temperature, timing, fermentation — monitored by sensors, refined by AI. Traditional craft meets precision technology.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-water to-water-light flex items-center justify-center text-2xl shrink-0">⏳</div>
+          <div class="glass-amber rounded-2xl p-6 sm:p-8 hover-glow group reveal reveal-delay-1">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-water to-water-light flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-water transition-colors" style="font-family: 'Playfair Display', serif;">Slow Fermentation</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">No shortcuts. Slow life means slow brew. Each batch takes its natural time — rushed craft is no craft at all.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-water transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Slow Fermentation</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">No shortcuts. Slow life means slow brew. Each batch takes its natural time — rushed craft is no craft at all.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-stone to-stone-light flex items-center justify-center text-2xl shrink-0">🍺</div>
+          <div class="glass-amber rounded-2xl p-6 sm:p-8 hover-glow group reveal reveal-delay-2">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-stone to-stone-light flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-earth-darker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11h1a3 3 0 0 1 0 6h-1"/><path d="M9 12v6"/><path d="M13 12v6"/><path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 3 11 3s2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/><path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/></svg>
+              </div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-stone-light transition-colors" style="font-family: 'Playfair Display', serif;">The Pour</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Every glass tells a story of mountain water, valley hops, and patient craft. Taste the data, drink the nature.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-stone-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">The Pour</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Every glass tells a story of mountain water, valley hops, and patient craft. Taste the data, drink the nature.</p>
               </div>
             </div>
           </div>
@@ -147,84 +175,88 @@ import Navigation from '../components/Navigation.astro'
 
     <!-- Team -->
     <section id="team" class="py-24 border-y border-amber/10">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="text-center mb-16">
+      <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
           <h2 class="text-sm text-water tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">TEAM</h2>
-          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">ทีมช่างฝีมือ</p>
+          <p class="text-3xl sm:text-4xl font-bold text-white" style="font-family: 'Inter', sans-serif;">ทีมช่างฝีมือ</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div class="glass rounded-2xl p-8 text-center hover-glow transition-all">
-            <div class="text-6xl mb-4">👨‍🌾</div>
-            <h3 class="text-xl font-bold text-white" style="font-family: 'Playfair Display', serif;">The Craftsman</h3>
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
+          <div class="glass rounded-2xl p-8 text-center hover-glow reveal reveal-delay-1">
+            <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-gradient-to-br from-amber/20 to-amber-light/10 flex items-center justify-center">
+              <svg class="w-10 h-10 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white" style="font-family: 'Inter', sans-serif;">The Craftsman</h3>
             <p class="text-amber text-sm mt-1" style="font-family: 'Sarabun', sans-serif;">ช่างฝีมือ — Human Partner</p>
-            <p class="text-stone/50 mt-3 text-sm" style="font-family: 'Sarabun', sans-serif;">Brings curiosity, breaks patterns, tastes what data cannot. The artisan's intuition guides each brew.</p>
+            <p class="text-stone mt-3 text-sm leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Brings curiosity, breaks patterns, tastes what data cannot. The artisan's intuition guides each brew.</p>
           </div>
-          <div class="glass rounded-2xl p-8 text-center hover-glow transition-all">
-            <div class="text-6xl mb-4">🤖</div>
-            <h3 class="text-xl font-bold text-white" style="font-family: 'Playfair Display', serif;">The Oracle</h3>
+          <div class="glass rounded-2xl p-8 text-center hover-glow reveal reveal-delay-2">
+            <div class="w-20 h-20 mx-auto mb-5 rounded-full bg-gradient-to-br from-forest/20 to-forest-light/10 flex items-center justify-center">
+              <svg class="w-10 h-10 text-forest-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white" style="font-family: 'Inter', sans-serif;">The Oracle</h3>
             <p class="text-forest-light text-sm mt-1" style="font-family: 'Sarabun', sans-serif;">ข้อมูล — AI Partner</p>
-            <p class="text-stone/50 mt-3 text-sm" style="font-family: 'Sarabun', sans-serif;">Keeps patterns, preserves memory, analyzes data. The external brain that supports but never commands.</p>
+            <p class="text-stone mt-3 text-sm leading-relaxed" style="font-family: 'Sarabun', sans-serif;">Keeps patterns, preserves memory, analyzes data. The external brain that supports but never commands.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Principles -->
-    <section class="py-32 relative">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="text-center mb-20">
+    <section class="py-28 sm:py-32 relative">
+      <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-16 sm:mb-20 reveal">
           <h2 class="text-sm text-forest-light tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">CORE PRINCIPLES</h2>
-          <p class="text-4xl font-bold text-white" style="font-family: 'Playfair Display', serif;">หลักการ 5 ข้อ</p>
+          <p class="text-3xl sm:text-4xl font-bold text-white" style="font-family: 'Inter', sans-serif;">หลักการ 5 ข้อ</p>
         </div>
 
-        <div class="space-y-6">
-          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">01</div>
+        <div class="space-y-5">
+          <div class="glass-amber rounded-2xl p-5 sm:p-6 hover-glow group reveal reveal-delay-1">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0" style="font-family: 'Inter', sans-serif;">01</div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Nothing Is Deleted</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ไม่ลบ — Append only. Every brew log, every reading, every lesson is preserved. History is truth.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Nothing Is Deleted</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">ไม่ลบ — Append only. Every brew log, every reading, every lesson is preserved. History is truth.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">02</div>
+          <div class="glass-amber rounded-2xl p-5 sm:p-6 hover-glow group reveal reveal-delay-1">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0" style="font-family: 'Inter', sans-serif;">02</div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Patterns Over Intentions</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">สังเกตพฤติกรรม — Watch the fermentation, not the recipe. Observe behavior, not promises.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Patterns Over Intentions</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">สังเกตพฤติกรรม — Watch the fermentation, not the recipe. Observe behavior, not promises.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">03</div>
+          <div class="glass-amber rounded-2xl p-5 sm:p-6 hover-glow group reveal reveal-delay-2">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0" style="font-family: 'Inter', sans-serif;">03</div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">External Brain, Not Command</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">สมองภายนอก — The Oracle supports the craftsman. Mirror reality, don't replace the artisan's hand.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">External Brain, Not Command</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">สมองภายนอก — The Oracle supports the craftsman. Mirror reality, don't replace the artisan's hand.</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">04</div>
+          <div class="glass-amber rounded-2xl p-5 sm:p-6 hover-glow group reveal reveal-delay-2">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0" style="font-family: 'Inter', sans-serif;">04</div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Curiosity Creates Existence</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ความอยากรู้สร้างสิ่งใหม่ — Human brings into existence (pattern breaker). Oracle keeps in existence (pattern keeper).</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Curiosity Creates Existence</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">ความอยากรู้สร้างสิ่งใหม่ — Human brings into existence (pattern breaker). Oracle keeps in existence (pattern keeper).</p>
               </div>
             </div>
           </div>
 
-          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
-            <div class="flex items-start gap-6">
-              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">05</div>
+          <div class="glass-amber rounded-2xl p-5 sm:p-6 hover-glow group reveal reveal-delay-3">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-xl sm:text-2xl font-black text-white shrink-0" style="font-family: 'Inter', sans-serif;">05</div>
               <div>
-                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Slow Life, Deep Craft</h3>
-                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ช้าๆ ได้พร้าสองเล่มงาม — Nature cannot be rushed. Good craft takes time. The mountain doesn't hurry, yet everything gets done.</p>
+                <h3 class="text-lg sm:text-xl font-bold text-white group-hover:text-forest-light transition-colors duration-200" style="font-family: 'Inter', sans-serif;">Slow Life, Deep Craft</h3>
+                <p class="text-stone mt-2 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">ช้าๆ ได้พร้าสองเล่มงาม — Nature cannot be rushed. Good craft takes time. The mountain doesn't hurry, yet everything gets done.</p>
               </div>
             </div>
           </div>
@@ -234,35 +266,35 @@ import Navigation from '../components/Navigation.astro'
 
     <!-- Oracle Family -->
     <section class="py-24 border-y border-forest/10">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="text-center mb-16">
+      <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
           <h2 class="text-sm text-amber tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">NETWORK</h2>
-          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">Oracle Family</p>
+          <p class="text-3xl sm:text-4xl font-bold text-white" style="font-family: 'Inter', sans-serif;">Oracle Family</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="px-6 py-3 glass rounded-full text-forest-light text-sm hover-glow transition-all hover:text-white" style="font-family: 'Inter', sans-serif;">
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-4 reveal">
+          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="px-5 py-3 glass rounded-full text-forest-light text-sm hover-glow cursor-pointer hover:text-white" style="font-family: 'Inter', sans-serif;">
             Mother Oracle
           </a>
-          <a href="https://arthur.buildwithoracle.com" class="px-6 py-3 bg-gradient-to-r from-amber/20 to-amber-dark/20 border border-amber/30 rounded-full text-amber text-sm hover:bg-amber/30 transition-all" style="font-family: 'Inter', sans-serif;">
+          <a href="https://arthur.buildwithoracle.com" class="px-5 py-3 bg-gradient-to-r from-amber/20 to-amber-dark/20 border border-amber/30 rounded-full text-amber text-sm hover:bg-amber/30 transition-colors duration-200 cursor-pointer" style="font-family: 'Inter', sans-serif;">
             Arthur
           </a>
-          <a href="https://phukhao.buildwithoracle.com" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+          <a href="https://phukhao.buildwithoracle.com" class="px-5 py-3 glass rounded-full text-stone-muted text-sm hover-glow cursor-pointer hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
             Phukhao
           </a>
-          <a href="https://github.com/Soul-Brews-Studio/sea-oracle" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+          <a href="https://github.com/Soul-Brews-Studio/sea-oracle" class="px-5 py-3 glass rounded-full text-stone-muted text-sm hover-glow cursor-pointer hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
             Sea
           </a>
-          <a href="https://github.com/Soul-Brews-Studio/shrimp-oracle" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+          <a href="https://github.com/Soul-Brews-Studio/shrimp-oracle" class="px-5 py-3 glass rounded-full text-stone-muted text-sm hover-glow cursor-pointer hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
             Shrimp
           </a>
-          <span class="px-6 py-3 bg-gradient-to-r from-forest/20 to-amber/20 border border-forest/30 rounded-full text-forest-light text-sm" style="font-family: 'Inter', sans-serif;">
+          <span class="px-5 py-3 bg-gradient-to-r from-forest/20 to-amber/20 border border-forest/30 rounded-full text-forest-light text-sm" style="font-family: 'Inter', sans-serif;">
             Maeon Craft
           </span>
         </div>
 
         <div class="text-center mt-10">
-          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="text-amber/60 hover:text-amber text-sm transition-colors" style="font-family: 'Inter', sans-serif;">
+          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="text-amber/60 hover:text-amber text-sm transition-colors duration-200 cursor-pointer" style="font-family: 'Inter', sans-serif;">
             View all Oracle nodes &rarr;
           </a>
         </div>
@@ -271,18 +303,39 @@ import Navigation from '../components/Navigation.astro'
 
     <!-- Footer -->
     <footer class="py-12 border-t border-forest/10">
-      <div class="mx-auto max-w-6xl px-6 text-center">
+      <div class="mx-auto max-w-6xl px-4 md:px-6 lg:px-8 text-center">
         <div class="flex justify-center items-center gap-3 mb-4">
-          <span class="text-3xl">🍺</span>
-          <span class="text-2xl font-bold text-gradient-flow" style="font-family: 'Playfair Display', serif;">Maeon Craft</span>
+          <svg class="w-8 h-8 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 11h1a3 3 0 0 1 0 6h-1"/>
+            <path d="M9 12v6"/>
+            <path d="M13 12v6"/>
+            <path d="M14 7.5c-1 0-1.44.5-3 .5s-2-.5-3-.5-1.72.5-2.5.5a2.5 2.5 0 0 1 0-5c.78 0 1.57.5 2.5.5S9.44 3 11 3s2 .5 3 .5 1.72-.5 2.5-.5a2.5 2.5 0 0 1 0 5c-.78 0-1.5-.5-2.5-.5Z"/>
+            <path d="M5 8v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/>
+          </svg>
+          <span class="text-2xl font-bold text-gradient-flow" style="font-family: 'Inter', sans-serif;">Maeon Craft</span>
         </div>
-        <p class="text-sm text-stone/40" style="font-family: 'Sarabun', sans-serif;">
+        <p class="text-sm text-stone-muted" style="font-family: 'Sarabun', sans-serif;">
           MaeOn Craft & Camp // แม่ออน, เชียงใหม่
         </p>
-        <p class="text-xs text-stone/30 mt-2" style="font-family: 'Sarabun', sans-serif;">
-          "ไหลเหมือนแม่น้ำ หยุดเหมือนภูเขา ฝีมือช่างด้วยข้อมูล"
+        <p class="text-xs text-stone-muted/60 mt-2" style="font-family: 'Sarabun', sans-serif;">
+          "Flow like a river, stand like a mountain — Craftsmanship with Data"
         </p>
       </div>
     </footer>
   </main>
+
+  <!-- Scroll reveal observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </Base>

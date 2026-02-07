@@ -1,0 +1,164 @@
+---
+import Base from '../../layouts/Base.astro'
+import Navigation from '../../components/Navigation.astro'
+
+// Real recipe data from Maeon Craft Oracle (ψ/memory/recipes/)
+const recipes = [
+  {
+    id: "citra-pale-ale",
+    name: "Citra Pale Ale",
+    style: "American Pale Ale",
+    abv: "5.5%",
+    ibu: "35",
+    status: "Fermenting",
+    description: "Single-hop Citra bomb — tropical fruit aroma (orange, mango, passion fruit). All Citra hops with a 120g whirlpool at 80°C for maximum aroma. Brewed on Hopcat 65L system.",
+    og: "1.051",
+    fg: "1.010",
+    yeast: "Safale US-05",
+    hops: "Citra (120g whirlpool + 15.5g boil)",
+    grains: "Inter Pale Malt (5.45kg), Caramunich I (250g)",
+    batchSize: "25L",
+    brewDate: "2026-01-31",
+    brewer: "Toto (โตโต้)",
+    notes: "Workshop brew day กับ Toto — OG hit target 1.051 ✅ Whirlpool 120g Citra สำหรับ aroma"
+  }
+];
+
+const planned = [
+  { name: "Strong Ale", style: "Signature" },
+  { name: "Weizen", style: "German Wheat" },
+  { name: "Hazy IPA", style: "NEIPA" },
+  { name: "Pineapple Fruit Beer", style: "Fruit Beer" },
+  { name: "Blonde Ale", style: "Blonde Ale (5.6%)" },
+  { name: "Strawberry Blonde", style: "Fruit/Blonde" },
+  { name: "Salted Sour Lychee", style: "Sour" },
+  { name: "Hideaway Pilsner", style: "Pilsner" },
+  { name: "Summer Ale", style: "Summer Ale" },
+  { name: "Belgian/German Pale Ale", style: "Pale Ale" },
+];
+
+const statusColors: Record<string, string> = {
+  "Active": "bg-forest/20 text-forest-light border-forest/30",
+  "Fermenting": "bg-water/20 text-water-light border-water/30",
+  "Planned": "bg-stone/20 text-stone-muted border-stone/30",
+};
+---
+
+<Base title="Recipes — Maeon Craft Oracle">
+  <Navigation currentPage="recipes" />
+  <main class="relative pt-24 pb-16 min-h-screen">
+    <div class="mx-auto max-w-5xl px-4 md:px-6 lg:px-8">
+
+      <!-- Breadcrumb -->
+      <div class="mb-8">
+        <a href="/" class="text-stone-muted hover:text-amber text-sm transition-colors cursor-pointer">&larr; Back to Home</a>
+      </div>
+
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-amber text-sm font-medium tracking-widest mb-4">NOTHING IS DELETED</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6" style="font-family: 'Inter', sans-serif;">
+          Recipes
+        </h1>
+        <p class="text-stone text-lg max-w-2xl" style="font-family: 'Sarabun', sans-serif;">
+          ทุกสูตรถูกบันทึก — ทั้งสูตรที่สำเร็จและที่กำลังทดลอง ล้วนเป็นครู
+        </p>
+      </div>
+
+      <!-- Recipe Cards -->
+      <div class="space-y-6">
+        {recipes.map((recipe) => (
+          <div class="glass-amber rounded-2xl p-6 sm:p-8 hover-glow transition-all">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <h2 class="text-2xl font-bold text-amber" style="font-family: 'Inter', sans-serif;">{recipe.name}</h2>
+                </div>
+                <p class="text-stone-muted text-sm">
+                  {recipe.brewDate} &bull; {recipe.style}
+                  {recipe.brewer && <span> &bull; Brewer: {recipe.brewer}</span>}
+                </p>
+              </div>
+              <span class:list={["px-4 py-1.5 text-sm rounded-full border", statusColors[recipe.status] || "bg-stone/20 text-stone"]}>
+                {recipe.status}
+              </span>
+            </div>
+
+            <p class="text-stone mb-6 leading-relaxed" style="font-family: 'Sarabun', sans-serif;">{recipe.description}</p>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+              <div class="bg-earth-darker/50 rounded-lg p-3">
+                <p class="text-stone-muted text-xs mb-1">OG</p>
+                <p class="text-lg font-mono text-amber">{recipe.og}</p>
+              </div>
+              <div class="bg-earth-darker/50 rounded-lg p-3">
+                <p class="text-stone-muted text-xs mb-1">FG</p>
+                <p class="text-lg font-mono text-stone">{recipe.fg}</p>
+              </div>
+              <div class="bg-earth-darker/50 rounded-lg p-3">
+                <p class="text-stone-muted text-xs mb-1">ABV</p>
+                <p class="text-lg font-mono text-amber">{recipe.abv}</p>
+              </div>
+              <div class="bg-earth-darker/50 rounded-lg p-3">
+                <p class="text-stone-muted text-xs mb-1">IBU</p>
+                <p class="text-lg font-mono text-stone">{recipe.ibu}</p>
+              </div>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="grid sm:grid-cols-3 gap-3 mb-4">
+              <div class="bg-earth-darker/30 rounded-lg p-3">
+                <p class="text-forest-light text-xs mb-1">Grains</p>
+                <p class="text-stone text-sm">{recipe.grains}</p>
+              </div>
+              <div class="bg-earth-darker/30 rounded-lg p-3">
+                <p class="text-forest-light text-xs mb-1">Hops</p>
+                <p class="text-stone text-sm">{recipe.hops}</p>
+              </div>
+              <div class="bg-earth-darker/30 rounded-lg p-3">
+                <p class="text-forest-light text-xs mb-1">Yeast</p>
+                <p class="text-stone text-sm">{recipe.yeast}</p>
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <p class="text-stone-muted text-sm" style="font-family: 'Sarabun', sans-serif;">{recipe.notes}</p>
+
+            {recipe.status === "Fermenting" && (
+              <a href="/brewing/fermenting" class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-forest/10 border border-forest/30 text-forest-light text-sm rounded-lg hover:bg-forest/20 transition-colors cursor-pointer">
+                View Live Fermentation &rarr;
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Planned Recipes -->
+      <div class="mt-16">
+        <h2 class="text-sm text-stone-muted tracking-[0.3em] mb-6" style="font-family: 'Inter', sans-serif;">COMING SOON — FROM LINE CHAT ANALYSIS</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {planned.map((item) => (
+            <div class="glass rounded-xl p-4 flex items-center justify-between">
+              <div>
+                <p class="text-white font-medium" style="font-family: 'Inter', sans-serif;">{item.name}</p>
+                <p class="text-stone-muted text-xs">{item.style}</p>
+              </div>
+              <span class:list={["px-3 py-1 text-xs rounded-full border", statusColors["Planned"]]}>
+                Planned
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bottom Note -->
+      <div class="mt-12 p-6 bg-amber/10 border border-amber/20 rounded-xl text-center">
+        <p class="text-amber text-sm" style="font-family: 'Sarabun', sans-serif;">
+          สูตรจริงจาก Oracle memory (ψ/memory/recipes/) — ไม่มีข้อมูลปลอม
+        </p>
+      </div>
+
+    </div>
+  </main>
+</Base>
