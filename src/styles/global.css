@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #2d5a27;
+  --color-forest-light: #4a8c3f;
+  --color-forest-dark: #1a3518;
+  --color-amber: #d4a03c;
+  --color-amber-light: #e8c468;
+  --color-amber-dark: #b8842a;
+  --color-water: #3a7ca5;
+  --color-water-light: #5ba3d9;
+  --color-stone: #a89279;
+  --color-stone-light: #c4b49e;
+  --color-earth-dark: #0f0f0a;
+  --color-earth-darker: #0a0a07;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-earth-darker);
+}
+
+.nature-grid {
+  background-image:
+    linear-gradient(rgba(45, 90, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 90, 39, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(45, 90, 39, 0.5), 0 0 40px rgba(45, 90, 39, 0.3);
+}
+
+.glow-text-amber {
+  text-shadow: 0 0 10px rgba(212, 160, 60, 0.5), 0 0 40px rgba(212, 160, 60, 0.3);
+}
+
+.gradient-text-nature {
+  background: linear-gradient(135deg, #4a8c3f, #d4a03c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-craft {
+  background: linear-gradient(135deg, #d4a03c, #3a7ca5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: rgba(15, 15, 10, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(45, 90, 39, 0.15);
+}
+
+.glass-amber {
+  background: rgba(15, 15, 10, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 160, 60, 0.2);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(45, 90, 39, 0.3);
+  border-color: rgba(45, 90, 39, 0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+.text-gradient-flow {
+  background: linear-gradient(90deg, #4a8c3f, #d4a03c, #3a7ca5, #4a8c3f);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 8s linear infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for keyboard navigation */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #4a8c3f;
+  outline-offset: 2px;
+}

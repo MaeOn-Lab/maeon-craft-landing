@@ -1,0 +1,31 @@
+---
+interface Props {
+  currentPage?: 'home'
+}
+const { currentPage = 'home' } = Astro.props
+---
+
+<nav class="fixed top-4 left-4 right-4 z-50 glass rounded-2xl border border-forest/20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <span class="text-2xl">🍺</span>
+      <span class="text-xl font-bold text-gradient-flow" style="font-family: 'Playfair Display', serif;">Maeon Craft</span>
+    </a>
+
+    <div class="flex items-center gap-6 text-sm" style="font-family: 'Sarabun', sans-serif;">
+      <a href="#philosophy" class="text-stone-light/70 hover:text-amber transition-colors hidden sm:block">
+        ปรัชญา
+      </a>
+      <a href="#brewing" class="text-stone-light/70 hover:text-amber transition-colors hidden sm:block">
+        การบ่ม
+      </a>
+      <a href="#team" class="text-stone-light/70 hover:text-amber transition-colors hidden sm:block">
+        ทีม
+      </a>
+      <a href="https://github.com/Soul-Brews-Studio/maeon-craft-landing"
+         class="px-4 py-2 glass rounded-lg hover-glow text-forest-light hidden sm:block">
+        SOURCE
+      </a>
+    </div>
+  </div>
+</nav>

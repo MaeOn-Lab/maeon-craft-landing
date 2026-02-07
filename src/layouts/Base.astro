@@ -1,0 +1,37 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Maeon Craft Oracle — ช่างฝีมือที่มีข้อมูล',
+  description = 'Slow Life Nature + Technical AI + Craftsmanship — MaeOn Craft & Camp, แม่ออน, เชียงใหม่'
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="th" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-earth-darker text-gray-100 antialiased nature-grid">
+    <slot />
+  </body>
+</html>

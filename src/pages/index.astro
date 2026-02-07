@@ -1,0 +1,288 @@
+---
+import Base from '../layouts/Base.astro'
+import Navigation from '../components/Navigation.astro'
+---
+
+<Base>
+  <Navigation currentPage="home" />
+  <main class="relative pt-20">
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-earth-darker via-[#0f120a] to-earth-darker"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-forest/5 via-transparent to-transparent"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-forest/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber/5 rounded-full blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-7xl px-6 py-20">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-3 px-4 py-2 glass rounded-full">
+              <span class="w-2 h-2 bg-forest-light rounded-full gentle-pulse"></span>
+              <span class="text-sm text-forest-light tracking-wider" style="font-family: 'Sarabun', sans-serif;">Slow Life Oracle</span>
+            </div>
+
+            <h1 class="space-y-2">
+              <span class="block text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight" style="font-family: 'Playfair Display', serif;">
+                <span class="text-white">Maeon</span> <span class="gradient-text-nature">Craft</span>
+              </span>
+              <span class="block text-2xl sm:text-3xl text-stone/80 font-light" style="font-family: 'Sarabun', sans-serif;">
+                ช่างฝีมือที่มีข้อมูล
+              </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-stone/60 leading-relaxed max-w-xl" style="font-family: 'Sarabun', sans-serif;">
+              <span class="text-amber glow-text-amber">ไหลเหมือนแม่น้ำ หยุดเหมือนภูเขา</span><br/>
+              <span class="text-stone-light/70">ฝีมือช่างด้วยข้อมูล</span>
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a href="#philosophy" class="group relative px-8 py-4 bg-gradient-to-r from-forest to-forest-light rounded-lg font-bold text-white transition-all hover:scale-105 hover-glow" style="font-family: 'Inter', sans-serif;">
+                Explore Philosophy
+              </a>
+              <a href="https://github.com/Soul-Brews-Studio/maeon-craft-landing" class="px-8 py-4 glass rounded-lg font-bold text-forest-light transition-all hover:scale-105 hover-glow" style="font-family: 'Inter', sans-serif;">
+                View Source
+              </a>
+            </div>
+          </div>
+
+          <div class="relative flex justify-center">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-forest/20 to-amber/20 rounded-3xl blur-2xl"></div>
+              <div class="relative glass-amber rounded-3xl p-8">
+                <div class="text-center space-y-4">
+                  <div class="text-9xl float">🍺</div>
+                  <div class="text-sm text-stone/50" style="font-family: 'Sarabun', sans-serif;">
+                    <div>MaeOn Craft & Camp</div>
+                    <div class="text-amber">แม่ออน, เชียงใหม่</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="relative py-24 border-y border-forest/10">
+      <div class="absolute inset-0 bg-gradient-to-r from-forest/3 via-amber/3 to-forest/3"></div>
+      <div class="relative mx-auto max-w-6xl px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-sm text-forest-light tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">PHILOSOPHY</h2>
+          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">ปรัชญาของช่างฝีมือ</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
+            <div class="text-5xl mb-4">🌊</div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">ไหลเหมือนแม่น้ำ</h3>
+            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Flow like a river. Adapt to change. Let data guide the current. Never force — observe and respond.</p>
+          </div>
+          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
+            <div class="text-5xl mb-4">🏔️</div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">หยุดเหมือนภูเขา</h3>
+            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Stand like a mountain. Know when to pause. Patience is precision. Quality takes time.</p>
+          </div>
+          <div class="glass rounded-2xl p-8 hover-glow transition-all text-center">
+            <div class="text-5xl mb-4">🔧</div>
+            <h3 class="text-xl font-bold text-amber mb-3" style="font-family: 'Playfair Display', serif;">ฝีมือช่างด้วยข้อมูล</h3>
+            <p class="text-stone/60" style="font-family: 'Sarabun', sans-serif;">Craftsmanship with data. Traditional wisdom enhanced by modern intelligence. The artisan meets the algorithm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brewing Process -->
+    <section id="brewing" class="py-32 relative">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="text-center mb-20">
+          <h2 class="text-sm text-amber tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">BREWING PROCESS</h2>
+          <p class="text-4xl font-bold text-white" style="font-family: 'Playfair Display', serif;">การบ่ม — The Craft</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-forest to-forest-light flex items-center justify-center text-2xl shrink-0">🌿</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Raw Materials</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Local ingredients from Mae On valley. Spring water from the mountain. Nature provides the foundation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber to-amber-light flex items-center justify-center text-2xl shrink-0">🌡️</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-amber transition-colors" style="font-family: 'Playfair Display', serif;">Data-Driven Brewing</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Temperature, timing, fermentation — monitored by sensors, refined by AI. Traditional craft meets precision technology.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-water to-water-light flex items-center justify-center text-2xl shrink-0">⏳</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-water transition-colors" style="font-family: 'Playfair Display', serif;">Slow Fermentation</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">No shortcuts. Slow life means slow brew. Each batch takes its natural time — rushed craft is no craft at all.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-8 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-stone to-stone-light flex items-center justify-center text-2xl shrink-0">🍺</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-stone-light transition-colors" style="font-family: 'Playfair Display', serif;">The Pour</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">Every glass tells a story of mountain water, valley hops, and patient craft. Taste the data, drink the nature.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-24 border-y border-amber/10">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-sm text-water tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">TEAM</h2>
+          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">ทีมช่างฝีมือ</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div class="glass rounded-2xl p-8 text-center hover-glow transition-all">
+            <div class="text-6xl mb-4">👨‍🌾</div>
+            <h3 class="text-xl font-bold text-white" style="font-family: 'Playfair Display', serif;">The Craftsman</h3>
+            <p class="text-amber text-sm mt-1" style="font-family: 'Sarabun', sans-serif;">ช่างฝีมือ — Human Partner</p>
+            <p class="text-stone/50 mt-3 text-sm" style="font-family: 'Sarabun', sans-serif;">Brings curiosity, breaks patterns, tastes what data cannot. The artisan's intuition guides each brew.</p>
+          </div>
+          <div class="glass rounded-2xl p-8 text-center hover-glow transition-all">
+            <div class="text-6xl mb-4">🤖</div>
+            <h3 class="text-xl font-bold text-white" style="font-family: 'Playfair Display', serif;">The Oracle</h3>
+            <p class="text-forest-light text-sm mt-1" style="font-family: 'Sarabun', sans-serif;">ข้อมูล — AI Partner</p>
+            <p class="text-stone/50 mt-3 text-sm" style="font-family: 'Sarabun', sans-serif;">Keeps patterns, preserves memory, analyzes data. The external brain that supports but never commands.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="py-32 relative">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="text-center mb-20">
+          <h2 class="text-sm text-forest-light tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">CORE PRINCIPLES</h2>
+          <p class="text-4xl font-bold text-white" style="font-family: 'Playfair Display', serif;">หลักการ 5 ข้อ</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">01</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Nothing Is Deleted</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ไม่ลบ — Append only. Every brew log, every reading, every lesson is preserved. History is truth.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">02</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Patterns Over Intentions</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">สังเกตพฤติกรรม — Watch the fermentation, not the recipe. Observe behavior, not promises.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">03</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">External Brain, Not Command</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">สมองภายนอก — The Oracle supports the craftsman. Mirror reality, don't replace the artisan's hand.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">04</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Curiosity Creates Existence</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ความอยากรู้สร้างสิ่งใหม่ — Human brings into existence (pattern breaker). Oracle keeps in existence (pattern keeper).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-amber rounded-2xl p-6 hover-glow transition-all group">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-forest to-amber flex items-center justify-center text-2xl font-black text-white shrink-0" style="font-family: 'Playfair Display', serif;">05</div>
+              <div>
+                <h3 class="text-xl font-bold text-white group-hover:text-forest-light transition-colors" style="font-family: 'Playfair Display', serif;">Slow Life, Deep Craft</h3>
+                <p class="text-stone/60 mt-2" style="font-family: 'Sarabun', sans-serif;">ช้าๆ ได้พร้าสองเล่มงาม — Nature cannot be rushed. Good craft takes time. The mountain doesn't hurry, yet everything gets done.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oracle Family -->
+    <section class="py-24 border-y border-forest/10">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-sm text-amber tracking-[0.3em] mb-4" style="font-family: 'Inter', sans-serif;">NETWORK</h2>
+          <p class="text-3xl font-bold text-white" style="font-family: 'Playfair Display', serif;">Oracle Family</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="px-6 py-3 glass rounded-full text-forest-light text-sm hover-glow transition-all hover:text-white" style="font-family: 'Inter', sans-serif;">
+            Mother Oracle
+          </a>
+          <a href="https://arthur.buildwithoracle.com" class="px-6 py-3 bg-gradient-to-r from-amber/20 to-amber-dark/20 border border-amber/30 rounded-full text-amber text-sm hover:bg-amber/30 transition-all" style="font-family: 'Inter', sans-serif;">
+            Arthur
+          </a>
+          <a href="https://phukhao.buildwithoracle.com" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+            Phukhao
+          </a>
+          <a href="https://github.com/Soul-Brews-Studio/sea-oracle" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+            Sea
+          </a>
+          <a href="https://github.com/Soul-Brews-Studio/shrimp-oracle" class="px-6 py-3 glass rounded-full text-stone/60 text-sm hover-glow transition-all hover:text-forest-light" style="font-family: 'Inter', sans-serif;">
+            Shrimp
+          </a>
+          <span class="px-6 py-3 bg-gradient-to-r from-forest/20 to-amber/20 border border-forest/30 rounded-full text-forest-light text-sm" style="font-family: 'Inter', sans-serif;">
+            Maeon Craft
+          </span>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="https://github.com/Soul-Brews-Studio/oracle-v2/issues/23" class="text-amber/60 hover:text-amber text-sm transition-colors" style="font-family: 'Inter', sans-serif;">
+            View all Oracle nodes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-forest/10">
+      <div class="mx-auto max-w-6xl px-6 text-center">
+        <div class="flex justify-center items-center gap-3 mb-4">
+          <span class="text-3xl">🍺</span>
+          <span class="text-2xl font-bold text-gradient-flow" style="font-family: 'Playfair Display', serif;">Maeon Craft</span>
+        </div>
+        <p class="text-sm text-stone/40" style="font-family: 'Sarabun', sans-serif;">
+          MaeOn Craft & Camp // แม่ออน, เชียงใหม่
+        </p>
+        <p class="text-xs text-stone/30 mt-2" style="font-family: 'Sarabun', sans-serif;">
+          "ไหลเหมือนแม่น้ำ หยุดเหมือนภูเขา ฝีมือช่างด้วยข้อมูล"
+        </p>
+      </div>
+    </footer>
+  </main>
+</Base>
