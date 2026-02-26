@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # wrangler
 .wrangler/
+
+# oracle brain (symlink to vault)
+ψ

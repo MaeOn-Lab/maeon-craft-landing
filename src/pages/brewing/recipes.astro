@@ -8,19 +8,29 @@ const recipes = [
     id: "citra-pale-ale",
     name: "Citra Pale Ale",
     style: "American Pale Ale",
-    abv: "5.5%",
+    abv: "5.3%",
     ibu: "35",
-    status: "Fermenting",
-    description: "Single-hop Citra bomb — tropical fruit aroma (orange, mango, passion fruit). All Citra hops with a 120g whirlpool at 80°C for maximum aroma. Brewed on Hopcat 65L system.",
+    status: "Active",
+    description: "Single-hop Citra bomb — 181g total hops with 120g whirlpool at 65-70°C. Brewed on Hopcat 65L system. Batch 1 lesson: oxidized hops caused harsh bitterness instead of tropical fruit aroma.",
     og: "1.051",
-    fg: "1.010",
+    fg: "1.011",
     yeast: "Safale US-05",
-    hops: "Citra (120g whirlpool + 15.5g boil)",
+    hops: "Citra (120g hop stand @ 65-70°C + 61g boil/flameout)",
     grains: "Inter Pale Malt (5.45kg), Caramunich I (250g)",
     batchSize: "25L",
     brewDate: "2026-01-31",
     brewer: "Toto (โตโต้)",
-    notes: "Workshop brew day กับ Toto — OG hit target 1.051 ✅ Whirlpool 120g Citra สำหรับ aroma"
+    notes: "OG 1.051 ✅ | FG 1.011 ✅ | Carbonation ดี | Caramel พอดี | No diacetyl ✅ | ⚠️ Harsh bitterness จาก oxidized Citra — hulupone + polyphenol ทำให้ขมแหลม กลิ่นใบชาแทน tropical fruit | บทเรียน: เช็คฮอปก่อนใช้ เก็บ freeze ถุงสุญญากาศ",
+    tasting: {
+      date: "2026-02-26",
+      carbonation: "Good",
+      malt: "Caramel พอดี",
+      bitterness: "Harsh — oxidized beta acid (hulupone)",
+      aroma: "ไม่หอม tropical fruit — กลิ่นใบชา polyphenol",
+      mouthfeel: "เผ็ด burn นิดๆ จาก polyphenol",
+      diacetyl: "None",
+      verdict: "สูตรดี แต่ฮอป oxidized — ครั้งหน้าต้องเช็คฮอปก่อนใช้"
+    }
   }
 ];
 
@@ -125,10 +135,37 @@ const statusColors: Record<string, string> = {
             <!-- Notes -->
             <p class="text-stone-muted text-sm" style="font-family: 'Sarabun', sans-serif;">{recipe.notes}</p>
 
-            {recipe.status === "Fermenting" && (
-              <a href="/brewing/fermenting" class="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-forest/10 border border-forest/30 text-forest-light text-sm rounded-lg hover:bg-forest/20 transition-colors cursor-pointer">
-                View Live Fermentation &rarr;
-              </a>
+            {recipe.tasting && (
+              <div class="mt-6 border-t border-amber/20 pt-6">
+                <h3 class="text-sm text-amber tracking-widest mb-4" style="font-family: 'Inter', sans-serif;">TASTING NOTES — {recipe.tasting.date}</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-forest-light text-xs mb-1">Carbonation</p>
+                    <p class="text-stone text-sm">{recipe.tasting.carbonation}</p>
+                  </div>
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-forest-light text-xs mb-1">Malt</p>
+                    <p class="text-stone text-sm">{recipe.tasting.malt}</p>
+                  </div>
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-forest-light text-xs mb-1">Diacetyl</p>
+                    <p class="text-stone text-sm">{recipe.tasting.diacetyl}</p>
+                  </div>
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-amber/80 text-xs mb-1">Bitterness</p>
+                    <p class="text-stone text-sm">{recipe.tasting.bitterness}</p>
+                  </div>
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-amber/80 text-xs mb-1">Aroma</p>
+                    <p class="text-stone text-sm">{recipe.tasting.aroma}</p>
+                  </div>
+                  <div class="bg-earth-darker/50 rounded-lg p-3">
+                    <p class="text-amber/80 text-xs mb-1">Mouthfeel</p>
+                    <p class="text-stone text-sm">{recipe.tasting.mouthfeel}</p>
+                  </div>
+                </div>
+                <p class="text-amber text-sm mt-4" style="font-family: 'Sarabun', sans-serif;">{recipe.tasting.verdict}</p>
+              </div>
             )}
           </div>
         ))}

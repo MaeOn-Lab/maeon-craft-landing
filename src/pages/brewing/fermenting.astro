@@ -1,35 +1,76 @@
 ---
 import Base from '../../layouts/Base.astro'
 import Navigation from '../../components/Navigation.astro'
+import BatchSummary from '../../components/react/BatchSummary.tsx'
+import TastingNotes from '../../components/react/TastingNotes.tsx'
+import OracleAnalysis from '../../components/react/OracleAnalysis.tsx'
+import type { BatchInfo, TimelineEvent, Milestone } from '../../components/react/brewing-config'
 
 // Real data from Maeon Craft Oracle (ψ/memory/recipes/citra-pale-ale.md)
-// Timeline traced from LINE chat + Oracle retrospective
-const batch = {
+// Timeline traced from LINE chat + Oracle retrospective + tasting 2026-02-26
+const batch: BatchInfo = {
   id: "citra-pale-ale",
   name: "Citra Pale Ale",
   style: "American Pale Ale",
   brewDate: "2026-01-31",
   og: "1.051",
-  targetFg: "1.010",
-  abv: "5.5%",
+  actualFg: "1.011",
+  abv: "5.3%",
   ibu: "35",
   volume: "25L",
   system: "Hopcat 65L",
   yeast: "Safale US-05",
   brewer: "Toto (โตโต้)",
   team: ["Toto (โตโต้)", "Nat (นัท)", "Oracle"],
-  fermentationSchedule: {
-    day0: "Pitch US-05 @ 18°C — OG 1.051 confirmed ✅",
-    day1_3: "Active fermentation @ 18°C — CO2 bubbling, krausen forming",
-    day7: "Mid-fermentation — peak activity expected",
-    day10: "Gravity check — approaching target FG 1.010",
-    day14: "Final gravity check — if stable, fermentation complete",
-    package: "Cold crash → keg or bottle → carbonate 2.4 CO2-vol"
+  status: "complete",
+  tasting: {
+    date: "2026-02-26",
+    day: 26,
+    scores: [
+      { attr: "Carbonation", status: "good", note: "ซ่าอยู่ — good carbonation" },
+      { attr: "Caramel/Malt", status: "good", note: "พอดี — balanced caramel" },
+      { attr: "FG", status: "good", note: "1.011 — on point" },
+      { attr: "Diacetyl", status: "good", note: "None — clean fermentation" },
+      { attr: "Bitterness", status: "warn", note: "Harsh — oxidized beta acid (hulupone), ขมแหลม กัดลิ้น" },
+      { attr: "Aroma", status: "bad", note: "ไม่หอม tropical fruit — กลิ่นใบชา polyphenol แทน" },
+      { attr: "Mouthfeel", status: "warn", note: "เผ็ด burn นิดๆ จาก polyphenol" },
+    ],
+    rootCause: "Oxidized Citra hops — hulupone (oxidized beta acid) + polyphenol extraction from 120g oxidized hops in hop stand",
+    lesson: "เช็คฮอปก่อนใช้ทุกครั้ง — ดมดู ถ้า cheesy/ไม่หอม = oxidized ทิ้งไป เก็บ freeze ถุงสุญญากาศ"
+  },
+  analysis: {
+    date: "2026-02-26",
+    cryoHops: [
+      { point: "Polyphenol ต่ำมาก", detail: "Cryo hops แยก lupulin gland ออกจากใบ/กากด้วยความเย็น -150°C — ทิ้ง vegetal matter ทั้งหมด → polyphenol น้อยลงมาก แก้ปัญหา 'รสใบชา' + เผ็ด burn" },
+      { point: "ใช้ครึ่งเดียว แรงเท่าเดิม", detail: "Resin content 2x ของ T90 pellet → ใช้แค่ 50-60g แทน 120g ก็ได้กลิ่นเท่ากัน ลด trub loss + ลด polyphenol extraction" },
+      { point: "Aroma ดีกว่า ไม่มี grassiness", detail: "Tropical fruit aroma ชัดเจนกว่า pellet เพราะไม่มี vegetal matter มา mask กลิ่น" },
+    ],
+    dryHop: {
+      isoAlpha: "Hop material ดูดซับ iso-alpha acid ออกจากเบียร์จริง — เบียร์ IBU > 30 รู้สึกขมน้อยลง แต่ offset ด้วย humulinone (~65% bitter as iso-alpha)",
+      hulupone: "Hulupone (oxidized beta acid) ละลายน้ำได้ดีมาก + ขม 84% ของ iso-alpha acid — ละลายในเบียร์แล้วเอาออกไม่ได้ด้วย dry hop",
+      verdict: "ป้องกันดีกว่าแก้ — dry hop ด้วย fresh hops เพิ่ม aroma mask ได้บ้าง แต่ hulupone ยังอยู่"
+    },
+    nextBatch: "Cryo Citra hop stand 50-60g @ 65-70°C — แก้ปัญหาได้ทั้ง polyphenol + กลิ่น",
+    sources: [
+      { label: "Scott Janish — Dry Hopping & Bitterness", url: "https://scottjanish.com/dry-hopping-effect-bitterness-ibu-testing/" },
+      { label: "Beer Maverick — Cryo Hops in IPA", url: "https://beermaverick.com/the-case-to-use-cryo-lupulin-hop-powder-in-every-ipa/" },
+      { label: "ResearchGate — Hulupones Bitterness", url: "https://www.researchgate.net/publication/305527977" },
+    ]
   }
 };
 
+const fermentationSchedule: Record<string, string> = {
+  day0: "Pitch US-05 @ 18°C — OG 1.051 confirmed ✅",
+  day1_3: "Active fermentation @ 18°C — CO2 bubbling, krausen forming",
+  day7: "Mid-fermentation — peak activity",
+  day10: "Gravity check — approaching target",
+  day14: "Fermentation complete — FG stable",
+  day17: "FG 1.011 confirmed — ABV 5.3% ✅",
+  package: "Kegged → carbonated 2.4 CO2-vol"
+};
+
 // Real timeline events from Oracle data
-const timeline = [
+const timeline: TimelineEvent[] = [
   { date: "2026-01-27", time: "11:08", event: "Nat asks workshop date in LINE group" },
   { date: "2026-01-27", time: "11:18", event: "Toto confirms: เสาร์นี้ครับอาจารย์ (this Saturday)" },
   { date: "2026-01-29", time: "21:23", event: "Toto: ต้นเบียร์เริ่ม 9.30 วันเสาร์ (brew starts 9:30 Saturday)" },
@@ -38,20 +79,28 @@ const timeline = [
   { date: "2026-01-31", time: "~11:00", event: "Sparge (11.08L @ 75-78°C)" },
   { date: "2026-01-31", time: "~12:00", event: "Boil starts — 8.2g Citra @ 60min" },
   { date: "2026-01-31", time: "~12:30", event: "7.3g Citra @ 30min" },
-  { date: "2026-01-31", time: "~13:00", event: "Flame out — no 0min hop, lowered temp instead" },
-  { date: "2026-01-31", time: "~13:10", event: "Whirlpool — 120g Citra @ 65-70°C × 10min (all aroma hops here)" },
+  { date: "2026-01-31", time: "~13:00", event: "Flame out — 45.5g Citra @ 0min" },
+  { date: "2026-01-31", time: "~13:10", event: "Whirlpool — 120g Citra @ 65-70°C × 10min (hop stand)" },
   { date: "2026-01-31", time: "~14:30", event: "Chill to 18-20°C, transfer to fermenter" },
   { date: "2026-01-31", time: "15:00", event: "US-05 yeast pitched — fermentation begins" },
   { date: "2026-01-31", time: "21:00", event: "Oracle session: Toto asks about Sabro (coconut) hops" },
   { date: "2026-01-31", time: "21:35", event: "Toto sends hydrometer photo — OG 1.051 confirmed ✅" },
+  { date: "2026-02-17", time: "—", event: "Fermentation complete — FG 1.011, ABV ~5.3% ✅" },
+  { date: "2026-02-26", time: "19:21", event: "Tasting day — Nat shares photos + tasting notes in LINE group" },
+  { date: "2026-02-26", time: "19:23", event: "Verdict: carbonation ดี, caramel พอดี, no diacetyl ✅ แต่ขม harsh จาก oxidized hops" },
+  { date: "2026-02-26", time: "19:28", event: "Oracle วิเคราะห์: hulupone (oxidized beta acid) + polyphenol จาก Citra เก่า" },
+  { date: "2026-02-26", time: "19:37", event: "Root cause confirmed: 120g oxidized hop ใน hop stand = harsh bitterness 3x" },
+  { date: "2026-02-26", time: "20:42", event: "Nat ถาม Oracle: Cryo hops แก้ปัญหานี้ได้ไหม? Dry hop ลด hulupone ได้ไหม?" },
+  { date: "2026-02-26", time: "20:43", event: "Oracle วิเคราะห์ + ส่ง LINE: Cryo hops 3 ข้อ + hulupone 84% bitter ของ iso-alpha (เอาออกไม่ได้)" },
+  { date: "2026-02-26", time: "20:43", event: "Next batch plan: Cryo Citra 50-60g hop stand @ 65-70°C แทน T90 pellet 120g" },
 ];
 
-// Calculated fermentation milestones
-const milestones = [
+const milestones: Milestone[] = [
   { day: 0, date: "2026-01-31", status: "done", label: "Brew day + pitch", detail: "OG 1.051 — Toto's first Citra batch" },
-  { day: 7, date: "2026-02-07", status: "active", label: "Mid-fermentation", detail: "Day 7 — peak activity, yeast working hard" },
-  { day: 10, date: "2026-02-10", status: "upcoming", label: "FG check", detail: "Gravity reading — approaching 1.010?" },
-  { day: 14, date: "2026-02-14", status: "upcoming", label: "Fermentation complete", detail: "Final gravity stable → ready for packaging" },
+  { day: 7, date: "2026-02-07", status: "done", label: "Mid-fermentation", detail: "Peak activity, yeast working hard" },
+  { day: 10, date: "2026-02-10", status: "done", label: "FG check", detail: "Gravity approaching target" },
+  { day: 17, date: "2026-02-17", status: "done", label: "Fermentation complete", detail: "FG 1.011 — ABV 5.3% ✅" },
+  { day: 26, date: "2026-02-26", status: "done", label: "Tasting", detail: "Carbonation ดี, caramel พอดี, no diacetyl — แต่ขม harsh จาก oxidized hops" },
 ];
 
 const milestoneColors: Record<string, string> = {
@@ -76,8 +125,8 @@ const milestoneColors: Record<string, string> = {
       <!-- Header -->
       <div class="mb-12">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-3 h-3 bg-forest-light rounded-full gentle-pulse"></div>
-          <p class="text-forest-light text-sm font-medium tracking-widest">LIVE FERMENTATION</p>
+          <div class="w-3 h-3 bg-amber rounded-full"></div>
+          <p class="text-amber text-sm font-medium tracking-widest">BATCH COMPLETE — TASTED</p>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" style="font-family: 'Inter', sans-serif;">
           {batch.name}
@@ -87,29 +136,9 @@ const milestoneColors: Record<string, string> = {
         </p>
       </div>
 
-      <!-- Live Counter + Stats -->
+      <!-- Batch Summary (React) + Stats -->
       <div class="grid md:grid-cols-2 gap-6 mb-12">
-        <!-- Day Counter -->
-        <div class="glass rounded-2xl p-8 flex flex-col items-center justify-center border border-forest/20" id="live-counter-box" data-brew-date={batch.brewDate}>
-          <p id="current-day" class="text-7xl md:text-8xl font-black text-forest-light tabular-nums" style="font-family: 'Inter', sans-serif;">—</p>
-          <p class="text-forest-light/60 text-lg font-medium tracking-widest mt-1">DAYS</p>
-          <div class="mt-4 flex gap-3 text-center">
-            <div>
-              <p id="live-hours" class="text-2xl font-bold text-forest-light tabular-nums">--</p>
-              <p class="text-forest-light/40 text-xs">HRS</p>
-            </div>
-            <p class="text-forest-light/20 text-2xl">:</p>
-            <div>
-              <p id="live-mins" class="text-2xl font-bold text-forest-light tabular-nums">--</p>
-              <p class="text-forest-light/40 text-xs">MIN</p>
-            </div>
-            <p class="text-forest-light/20 text-2xl">:</p>
-            <div>
-              <p id="live-secs" class="text-2xl font-bold text-amber tabular-nums">--</p>
-              <p class="text-amber/40 text-xs">SEC</p>
-            </div>
-          </div>
-        </div>
+        <BatchSummary batch={batch} />
 
         <!-- Stats -->
         <div class="grid grid-cols-3 gap-3">
@@ -118,12 +147,12 @@ const milestoneColors: Record<string, string> = {
             <p class="text-stone-muted text-xs mt-1">OG</p>
           </div>
           <div class="glass-amber rounded-xl p-4 text-center flex flex-col justify-center">
-            <p class="text-2xl font-mono text-stone-muted">{batch.targetFg}</p>
-            <p class="text-stone-muted text-xs mt-1">Target FG</p>
+            <p class="text-2xl font-mono text-amber">{batch.actualFg}</p>
+            <p class="text-stone-muted text-xs mt-1">Actual FG</p>
           </div>
           <div class="glass-amber rounded-xl p-4 text-center flex flex-col justify-center">
             <p class="text-2xl font-mono text-amber">{batch.abv}</p>
-            <p class="text-stone-muted text-xs mt-1">Est. ABV</p>
+            <p class="text-stone-muted text-xs mt-1">ABV</p>
           </div>
           <div class="glass-amber rounded-xl p-4 text-center flex flex-col justify-center">
             <p class="text-2xl font-mono text-stone">{batch.ibu}</p>
@@ -163,7 +192,7 @@ const milestoneColors: Record<string, string> = {
       <div class="mb-12">
         <h2 class="text-xl font-bold text-white mb-6" style="font-family: 'Inter', sans-serif;">Fermentation Schedule</h2>
         <div class="glass rounded-2xl p-6 space-y-4">
-          {Object.entries(batch.fermentationSchedule).map(([day, detail]) => (
+          {Object.entries(fermentationSchedule).map(([day, detail]) => (
             <div class="flex items-start gap-4">
               <span class="px-3 py-1 bg-amber/10 text-amber text-xs rounded-full shrink-0 font-mono">{day}</span>
               <p class="text-stone text-sm" style="font-family: 'Sarabun', sans-serif;">{detail}</p>
@@ -171,6 +200,12 @@ const milestoneColors: Record<string, string> = {
           ))}
         </div>
       </div>
+
+      <!-- Tasting Notes (React) -->
+      {batch.tasting && <TastingNotes tasting={batch.tasting} />}
+
+      <!-- Oracle Analysis (React) -->
+      {batch.analysis && <OracleAnalysis analysis={batch.analysis} />}
 
       <!-- Brew Day Timeline -->
       <div class="mb-12">
@@ -218,36 +253,4 @@ const milestoneColors: Record<string, string> = {
 
     </div>
   </main>
-
-  <script>
-    const box = document.getElementById('live-counter-box');
-    const brewDateStr = box?.dataset.brewDate;
-
-    const update = () => {
-      if (!brewDateStr) return;
-      const brew = new Date(brewDateStr + 'T15:00:00+07:00');
-      const now = new Date();
-      const diffMs = now.getTime() - brew.getTime();
-      const totalSecs = Math.max(0, Math.floor(diffMs / 1000));
-      const days = Math.floor(totalSecs / 86400);
-      const rem = totalSecs % 86400;
-      const hrs = Math.floor(rem / 3600);
-      const mins = Math.floor((rem % 3600) / 60);
-      const secs = rem % 60;
-      const pad = (n: number) => n.toString().padStart(2, '0');
-
-      const dayEl = document.getElementById('current-day');
-      const hrsEl = document.getElementById('live-hours');
-      const minsEl = document.getElementById('live-mins');
-      const secsEl = document.getElementById('live-secs');
-
-      if (dayEl) dayEl.textContent = `${days}`;
-      if (hrsEl) hrsEl.textContent = pad(hrs);
-      if (minsEl) minsEl.textContent = pad(mins);
-      if (secsEl) secsEl.textContent = pad(secs);
-    };
-
-    update();
-    setInterval(update, 1000);
-  </script>
 </Base>
